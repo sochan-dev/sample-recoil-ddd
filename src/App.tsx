@@ -1,12 +1,13 @@
-import { RecoilRoot } from "recoil";
-import { TodoList } from "./TodoList";
+import React, { VFC } from 'react';
+import { RecoilRoot } from 'recoil';
+import { TodoList } from 'TodoList';
 
-function App() {
+const App: VFC = () => {
   return (
     <RecoilRoot>
       <TodoList />
     </RecoilRoot>
   );
-}
+};
 
 export default App;

@@ -1,6 +1,6 @@
-import { useRecoilCallback } from "recoil";
-import { stateTodo, stateTodoIds } from "../states/todo/entity";
-import { Todo, TodoId } from "../types/todo";
+import { useRecoilCallback } from 'recoil';
+import { stateTodo, stateTodoIds } from 'states/todo/entity';
+import { Todo, TodoId } from 'types/todo';
 
 export const useTodo = () => {
   // NOTE: サーバからデータを取得してstateに反映するときなど
@@ -10,7 +10,7 @@ export const useTodo = () => {
     });
   });
 
-  const upsertTodo = useRecoilCallback(({ set }) => (newTodo: Todo) => {
+  const insertTodo = useRecoilCallback(({ set }) => (newTodo: Todo) => {
     set(stateTodo(newTodo.id), newTodo);
   });
 
@@ -21,7 +21,7 @@ export const useTodo = () => {
 
   return {
     setFromArray,
-    upsertTodo,
+    insertTodo,
     removeTodo,
-  };
+  } as const;
 };
